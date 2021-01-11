@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+import Protypes from 'prop-types';
 import { Form, Input, Button } from 'antd';
 import Link from 'next/link';
 import styled from 'styled-components';
@@ -58,6 +59,10 @@ const LoginForm = ({ setIsLoggedIn }) => {
       </ButtonWrapper>
     </FormWrapper>
   );
+};
+
+LoginForm.propTypes = {
+  setIsLoggedIn: Protypes.func.isRequired,
 };
 
 export default LoginForm;

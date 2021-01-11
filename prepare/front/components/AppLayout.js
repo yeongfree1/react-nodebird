@@ -41,9 +41,9 @@ const AppLayout = ({ children }) => {
           {children}
         </Col>
         <Col xs={24} md={6}>
-          <a href="https://www.naver.com" target="_blank" rel="noreferrer noopener">
+          <Link href="https://www.naver.com" target="_blank" rel="noreferrer noopener">
             네이버로 가기
-          </a>
+          </Link>
         </Col>
       </Row>
     </div>
