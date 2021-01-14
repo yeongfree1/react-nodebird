@@ -1,4 +1,7 @@
 import { createWrapper } from 'next-redux-wrapper';
+import { createStore } from 'redux';
+
+import reducer from '../reducers';
 
 const configureSotre = () => {
   const store = createStore(reducer);
