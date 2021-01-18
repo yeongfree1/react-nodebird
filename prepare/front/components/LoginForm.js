@@ -3,7 +3,7 @@ import { Form, Input, Button } from 'antd';
 import Link from 'next/link';
 import styled from 'styled-components';
 import useInput from '../hooks/useInput';
-import { loginAction } from '../reducers';
+import { loginAction } from '../reducers/user';
 import { useDispatch } from 'react-redux';
 
 const ButtonWrapper = styled.div`
@@ -16,7 +16,6 @@ const LoginForm = () => {
   const [password, onChangePassword] = useInput('');
 
   const onSubmitForm = useCallback(() => {
-    console.log(id, password);
     dispatch(loginAction(id, password));
   }, [id, password]);
 
@@ -32,7 +31,7 @@ const LoginForm = () => {
         <Input name="user-id" value={id} onChange={onChangeId} required />
       </div>
       <div>
-        <label htmlFor="user-id">아이디</label>
+        <label htmlFor="user-id">비밀번호</label>
         <br />
         <Input
           name="user-password"
