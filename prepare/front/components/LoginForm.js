@@ -10,6 +10,10 @@ const ButtonWrapper = styled.div`
   margin-top: 10px;
 `;
 
+const FormWrapper = styled(Form)`
+  padding: 10px;
+`;
+
 const LoginForm = () => {
   const dispatch = useDispatch();
   const [id, onChangeId] = useInput('');
@@ -18,10 +22,6 @@ const LoginForm = () => {
   const onSubmitForm = useCallback(() => {
     dispatch(loginAction(id, password));
   }, [id, password]);
-
-  const FormWrapper = styled(Form)`
-    padding: 10px;
-  `;
 
   return (
     <FormWrapper onFinish={onSubmitForm}>

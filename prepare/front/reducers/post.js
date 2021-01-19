@@ -7,7 +7,16 @@ export const initialState = {
         nickname: '영',
       },
       content: '첫 번째 게시글 #해시태그',
-      Image: [{ src: 'https://bookasdfas.com' }],
+      Images: [
+        {
+          src:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png',
+        },
+        {
+          src:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png',
+        },
+      ],
       Comments: [
         {
           User: {
@@ -41,7 +50,7 @@ const dummyPost = {
     nickname: '영',
   },
   content: '첫 번째 게시글 #해시태그',
-  Image: [],
+  Images: [],
   Comments: [],
 };
 
