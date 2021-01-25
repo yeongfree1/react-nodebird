@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Slick from 'react-slick';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+import { CloseOutlined } from '@ant-design/icons';
 
 const Overlay = styled.div`
   position: fixed;
@@ -45,7 +46,7 @@ const ImageWrapper = styled.div`
   padding: 32px;
   text-align: center;
 
-  &img {
+  & img {
     margin: 0 auto;
     max-height: 750px;
   }
@@ -67,20 +68,36 @@ const Indicator = styled.div`
   }
 `;
 
+const Global = createGlobalStyle`
+    .slick-slide {
+        display: inline-block;
+    }
+`;
+
+const CloseBtn = styled(CloseOutlined)`
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 15px;
+  line-height: 14px;
+  cursor: pointer;
+`;
+
 const ImagesZoom = ({ images, onClose }) => {
   const [currentSlide, setCurrrentSlide] = useState(0);
 
   return (
     <Overlay>
+      <Global />
       <Header>
         <h1>상세 이미지</h1>
-        <button onClick={onClose}>X</button>
+        <CloseBtn onClick={onClose}>X</CloseBtn>
       </Header>
       <SlickWrapper>
         <div>
           <Slick
             initialSlide={0}
-            afterChange={(slide) => setCurrrentSlide(slide)}
+            beforeChange={(slide) => setCurrrentSlide(slide)}
             infinite
             arrows={false}
             slidesToShow={1}
@@ -92,6 +109,11 @@ const ImagesZoom = ({ images, onClose }) => {
               </ImageWrapper>
             ))}
           </Slick>
+          <Indicator>
+            <div>
+              {currentSlide + 1} / {images.length}
+            </div>
+          </Indicator>
         </div>
       </SlickWrapper>
     </Overlay>
