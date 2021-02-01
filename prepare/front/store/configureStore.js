@@ -6,6 +6,7 @@ import createSagaMiddleware from 'redux-saga';
 import reducer from '../reducers';
 import rootSaga from '../sagas';
 
+// eslint-disable-next-line no-unused-vars
 const loggerMiddleware = ({ dispatch, getState }) => (next) => (action) => {
   console.log(action);
   return next(action);
