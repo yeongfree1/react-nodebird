@@ -4,7 +4,8 @@ import { combineReducers } from 'redux';
 import user from './user';
 import post from './post';
 
-const rootReducers = combineReducers({
+// (이전상태, 액션) => 다음상태
+const rootReducer = combineReducers({
   index: (state = {}, action) => {
     switch (action.type) {
       case HYDRATE:
@@ -17,4 +18,5 @@ const rootReducers = combineReducers({
   user,
   post,
 });
-export default rootReducers;
+
+export default rootReducer;
